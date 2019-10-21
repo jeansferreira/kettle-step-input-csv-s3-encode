@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="src" path="src"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/jre1.8.0_171"/>
+	<classpathentry kind="lib" path="lib/kettle-core-5.3.0.0-213.jar"/>
+	<classpathentry kind="lib" path="lib/metastore-5.3.0.0-213.jar"/>
+	<classpathentry kind="lib" path="lib/kettle-engine-5.3.0.0-213.jar"/>
+	<classpathentry kind="lib" path="lib/kettle-ui-swt-5.3.0.0-213.jar"/>
+	<classpathentry kind="lib" path="lib/swt-win32-3.3.0.3346.jar"/>
+	<classpathentry kind="output" path="bin"/>
+</classpath>
