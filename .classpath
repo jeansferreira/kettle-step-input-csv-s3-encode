@@ -10,5 +10,9 @@
 	<classpathentry kind="lib" path="lib/metastore-7.1.0.0-12.jar"/>
 	<classpathentry kind="lib" path="lib/jets3t-0.9.4.jar"/>
 	<classpathentry kind="lib" path="lib/jets3t-gui-0.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/cockpit-0.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/cockpitlite-0.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/synchronize-0.9.4.jar"/>
+	<classpathentry kind="lib" path="lib/uploader-0.9.4.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>
