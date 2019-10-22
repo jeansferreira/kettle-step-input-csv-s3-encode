@@ -61,9 +61,9 @@ import org.w3c.dom.Node;
 
 @Step(	
 		id = "S3CsvInput",
-		image = "org/pentaho/di/sdk/samples/steps/demo/resources/icon.png",
+		image = "org/pentaho/di/sdk/samples/steps/demo/resources/S3I.png",
 		i18nPackageName="org.pentaho.di.sdk.samples.steps.demo",
-		name="DemoStep.Name",
+		name="S3CsvInputDialog.Shell.Title",
 		description = "DemoStep.TooltipDesc",
 		categoryDescription="i18n:org.pentaho.di.trans.step:BaseStep.Category.Transform"
 )
