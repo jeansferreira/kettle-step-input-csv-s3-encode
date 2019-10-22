@@ -60,12 +60,12 @@
 		<fail unless="kettle-dir.present" message="PDI installation not found. Please specify the path to your PDI installation in build/build.properties" />
 		
 		<!-- remove previous installations -->
-		<delete dir="${kettle-dir}/plugins/steps/${pluginname}" />
+		<delete dir="${kettle-dir}/plugins/${pluginname}" />
 
 		<!-- put fresh files in place -->
-		<mkdir dir="${kettle-dir}/plugins/steps/${pluginname}" />
+		<mkdir dir="${kettle-dir}/plugins/${pluginname}" />
 
-		<copy todir="${kettle-dir}/plugins/steps/${pluginname}">
+		<copy todir="${kettle-dir}/plugins/${pluginname}">
 			<fileset dir="${diststep}" includes="**/*.*" />
 			<fileset dir="${diststep}" includes="**" />
 		</copy>
