@@ -10,6 +10,6 @@
 	<classpathentry kind="lib" path="lib/metastore-7.1.0.0-12.jar"/>
 	<classpathentry kind="lib" path="lib/synchronize-0.9.4.jar"/>
 	<classpathentry kind="lib" path="lib/uploader-0.9.4.jar"/>
-	<classpathentry kind="lib" path="lib/jets3t-0.8.1.jar"/>
+	<classpathentry kind="lib" path="lib/jets3t-0.7.0.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

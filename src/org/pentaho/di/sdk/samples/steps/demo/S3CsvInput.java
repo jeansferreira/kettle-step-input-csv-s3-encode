@@ -15,7 +15,6 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jets3t.service.security.ProviderCredentials;
 import org.jets3t.service.model.S3Bucket;
 import org.jets3t.service.model.S3Object;
 import org.pentaho.di.core.Const;
