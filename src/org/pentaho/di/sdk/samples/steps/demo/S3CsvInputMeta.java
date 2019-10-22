@@ -15,6 +15,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
+import org.eclipse.swt.widgets.Shell;
 import org.jets3t.service.S3Service;
 import org.jets3t.service.S3ServiceException;
 import org.jets3t.service.impl.rest.httpclient.RestS3Service;
@@ -23,6 +24,7 @@ import org.pentaho.di.core.CheckResult;
 import org.pentaho.di.core.CheckResultInterface;
 import org.pentaho.di.core.Const;
 import org.pentaho.di.core.Counter;
+import org.pentaho.di.core.annotations.Step;
 import org.pentaho.di.core.database.DatabaseMeta;
 import org.pentaho.di.core.encryption.Encr;
 import org.pentaho.di.core.exception.KettleException;
@@ -36,16 +38,16 @@ import org.pentaho.di.core.xml.XMLHandler;
 import org.pentaho.di.repository.ObjectId;
 import org.pentaho.di.repository.Repository;
 import org.pentaho.di.resource.ResourceEntry;
-import org.pentaho.di.resource.ResourceReference;
 import org.pentaho.di.resource.ResourceEntry.ResourceType;
+import org.pentaho.di.resource.ResourceReference;
 import org.pentaho.di.trans.Trans;
 import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.step.BaseStepMeta;
 import org.pentaho.di.trans.step.StepDataInterface;
+import org.pentaho.di.trans.step.StepDialogInterface;
 import org.pentaho.di.trans.step.StepInterface;
 import org.pentaho.di.trans.step.StepMeta;
 import org.pentaho.di.trans.step.StepMetaInterface;
-import org.pentaho.di.trans.steps.textfileinput.InputFileMetaInterface;
 import org.pentaho.di.trans.steps.textfileinput.TextFileInputField;
 import org.pentaho.di.trans.steps.textfileinput.TextFileInputMeta;
 import org.w3c.dom.Node;
@@ -57,7 +59,22 @@ import org.w3c.dom.Node;
  * @since 2008-04-28
  */
 
-public class S3CsvInputMeta extends BaseStepMeta implements StepMetaInterface, InputFileMetaInterface {
+@Step(	
+		id = "S3CsvInput",
+		image = "org/pentaho/di/sdk/samples/steps/demo/resources/icon.png",
+		i18nPackageName="org.pentaho.di.sdk.samples.steps.demo",
+		name="DemoStep.Name",
+		description = "DemoStep.TooltipDesc",
+		categoryDescription="i18n:org.pentaho.di.trans.step:BaseStep.Category.Transform"
+)
+public class S3CsvInputMeta extends BaseStepMeta implements StepMetaInterface {
+	
+	/**
+	 *	The PKG member is used when looking up internationalized strings.
+	 *	The properties file with localized keys is expected to reside in 
+	 *	{the package of the class specified}/messages/messages_{locale}.properties   
+	 */
+	private static Class<?> PKG = S3CsvInputMeta.class; // for i18n purposes
   private String bucket;
 
   private String filename;
@@ -364,6 +381,10 @@ public class S3CsvInputMeta extends BaseStepMeta implements StepMetaInterface, I
                                 Trans trans ) {
     return new S3CsvInput( stepMeta, stepDataInterface, cnr, tr, trans );
   }
+  
+	public StepDialogInterface getDialog(Shell shell, StepMetaInterface meta, TransMeta transMeta, String name) {
+		return new S3CsvInputDialog(shell, meta, transMeta, name);
+	}
 
   public StepDataInterface getStepData() {
     return new S3CsvInputData();

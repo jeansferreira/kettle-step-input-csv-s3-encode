@@ -39,6 +39,7 @@ import org.pentaho.di.trans.TransMeta;
 import org.pentaho.di.trans.TransPreviewFactory;
 import org.pentaho.di.trans.step.BaseStepMeta;
 import org.pentaho.di.trans.step.StepDialogInterface;
+import org.pentaho.di.trans.steps.textfileinput.InputFileMetaInterface;
 import org.pentaho.di.trans.steps.textfileinput.TextFileInput;
 import org.pentaho.di.trans.steps.textfileinput.TextFileInputField;
 import org.pentaho.di.trans.steps.textfileinput.TextFileInputMeta;
@@ -56,6 +57,9 @@ import org.pentaho.di.ui.trans.step.BaseStepDialog;
 import org.pentaho.di.ui.trans.steps.textfileinput.TextFileCSVImportProgressDialog;
 
 public class S3CsvInputDialog extends BaseStepDialog implements StepDialogInterface {
+	
+	private static Class<?> PKG = S3CsvInputMeta.class; // for i18n purposes
+	
   private S3CsvInputMeta inputMeta;
 
   private TextVar wAccessKey;
@@ -867,8 +871,8 @@ public class S3CsvInputDialog extends BaseStepDialog implements StepDialogInterf
 
       getInfo( meta );
 
-      TextFileCSVImportProgressDialog pd =
-        new TextFileCSVImportProgressDialog( shell, meta, transMeta, reader, samples, true );
+      //TextFileCSVImportProgressDialog pd = new TextFileCSVImportProgressDialog( shell, meta, transMeta, reader, samples, true );
+      TextFileCSVImportProgressDialog pd = new TextFileCSVImportProgressDialog( shell, (InputFileMetaInterface) meta, transMeta, reader, samples, true );
       String message = pd.open();
       if ( message != null ) {
         wFields.removeAll();
