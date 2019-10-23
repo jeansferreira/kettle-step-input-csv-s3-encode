@@ -58,7 +58,12 @@ import org.w3c.dom.Node;
  * @since 2008-04-28
  */
 
-@Step(id = "S3CsvInput", image = "org/pentaho/di/sdk/samples/steps/demo/resources/s3_aquarela.png", i18nPackageName = "org.pentaho.di.sdk.samples.steps.demo", name = "S3CsvInputDialog.Shell.Title", description = "DemoStep.TooltipDesc", categoryDescription = "i18n:org.pentaho.di.trans.step:BaseStep.Category.Transform")
+@Step(id = "S3CsvInput", 
+	image = "org/pentaho/di/sdk/samples/steps/demo/resources/s3_aquarela.png", 
+	i18nPackageName = "org.pentaho.di.sdk.samples.steps.demo", 
+	name = "S3CsvInputDialog.Shell.Title", 
+	description = "DemoStep.TooltipDesc", 
+	categoryDescription = "i18n:org.pentaho.di.trans.step:BaseStep.Category.Input")
 public class S3CsvInputMeta extends BaseStepMeta implements StepMetaInterface {
 
 	/**
@@ -117,7 +122,6 @@ public class S3CsvInputMeta extends BaseStepMeta implements StepMetaInterface {
 		headerPresent = true;
 		lazyConversionActive = true;
 		maxLineSize = "5000";
-		encoding = "-";
 	}
 
 	private void readData(Node stepnode) throws KettleXMLException {

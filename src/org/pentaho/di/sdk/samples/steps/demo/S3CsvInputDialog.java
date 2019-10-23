@@ -58,6 +58,7 @@ import org.pentaho.di.ui.core.dialog.PreviewRowsDialog;
 import org.pentaho.di.ui.core.widget.ColumnInfo;
 import org.pentaho.di.ui.core.widget.ComboValuesSelectionListener;
 import org.pentaho.di.ui.core.widget.ComboVar;
+import org.pentaho.di.ui.core.widget.PasswordTextVar;
 import org.pentaho.di.ui.core.widget.TableView;
 import org.pentaho.di.ui.core.widget.TextVar;
 import org.pentaho.di.ui.trans.dialog.TransPreviewProgressDialog;
@@ -143,44 +144,48 @@ public class S3CsvInputDialog extends BaseStepDialog implements StepDialogInterf
 		wStepname.setLayoutData(fdStepname);
 		Control lastControl = wStepname;
 
-		// Access key
-		Label wlAccessKey = new Label(shell, SWT.RIGHT);
-		wlAccessKey.setText(Messages.getString("S3CsvInputDialog.AccessKey.Label")); //$NON-NLS-1$
-		props.setLook(wlAccessKey);
-		FormData fdlAccessKey = new FormData();
-		fdlAccessKey.top = new FormAttachment(lastControl, margin);
-		fdlAccessKey.left = new FormAttachment(0, 0);
-		fdlAccessKey.right = new FormAttachment(middle, -margin);
-		wlAccessKey.setLayoutData(fdlAccessKey);
-		wAccessKey = new TextVar(transMeta, shell, SWT.SINGLE | SWT.LEFT | SWT.BORDER);
-		props.setLook(wAccessKey);
-		wAccessKey.addModifyListener(lsMod);
-		FormData fdAccessKey = new FormData();
-		fdAccessKey.top = new FormAttachment(lastControl, margin);
-		fdAccessKey.left = new FormAttachment(middle, 0);
-		fdAccessKey.right = new FormAttachment(100, 0);
-		wAccessKey.setLayoutData(fdAccessKey);
-		lastControl = wAccessKey;
+	    // Access key
+	    Label wlAccessKey = new Label( shell, SWT.RIGHT );
+	    wlAccessKey.setText( Messages.getString( "S3CsvInputDialog.AccessKey.Label" ) ); //$NON-NLS-1$
+	    props.setLook( wlAccessKey );
+	    FormData fdlAccessKey = new FormData();
+	    fdlAccessKey.top = new FormAttachment( lastControl, margin );
+	    fdlAccessKey.left = new FormAttachment( 0, 0 );
+	    fdlAccessKey.right = new FormAttachment( middle, -margin );
+	    wlAccessKey.setLayoutData( fdlAccessKey );
 
-		// Secret key
-		Label wlSecretKey = new Label(shell, SWT.RIGHT);
-		wlSecretKey.setText(Messages.getString("S3CsvInputDialog.SecretKey.Label")); //$NON-NLS-1$
-		props.setLook(wlSecretKey);
-		FormData fdlSecretKey = new FormData();
-		fdlSecretKey.top = new FormAttachment(lastControl, margin);
-		fdlSecretKey.left = new FormAttachment(0, 0);
-		fdlSecretKey.right = new FormAttachment(middle, -margin);
-		wlSecretKey.setLayoutData(fdlSecretKey);
-		wSecretKey = new TextVar(transMeta, shell, SWT.SINGLE | SWT.LEFT | SWT.BORDER);
-		props.setLook(wSecretKey);
-		wSecretKey.addModifyListener(lsMod);
-		FormData fdSecretKey = new FormData();
-		fdSecretKey.top = new FormAttachment(lastControl, margin);
-		fdSecretKey.left = new FormAttachment(middle, 0);
-		fdSecretKey.right = new FormAttachment(100, 0);
-		wSecretKey.setLayoutData(fdSecretKey);
-		lastControl = wSecretKey;
+	    wAccessKey = new PasswordTextVar( transMeta, shell, SWT.SINGLE | SWT.LEFT | SWT.BORDER );
 
+	    props.setLook( wAccessKey );
+	    wAccessKey.addModifyListener( lsMod );
+	    FormData fdAccessKey = new FormData();
+	    fdAccessKey.top = new FormAttachment( lastControl, margin );
+	    fdAccessKey.left = new FormAttachment( middle, 0 );
+	    fdAccessKey.right = new FormAttachment( 100, 0 );
+	    wAccessKey.setLayoutData( fdAccessKey );
+	    lastControl = wAccessKey;
+
+	    // Secret key
+	    Label wlSecretKey = new Label( shell, SWT.RIGHT );
+	    wlSecretKey.setText( Messages.getString( "S3CsvInputDialog.SecretKey.Label" ) ); //$NON-NLS-1$
+	    props.setLook( wlSecretKey );
+	    FormData fdlSecretKey = new FormData();
+	    fdlSecretKey.top = new FormAttachment( lastControl, margin );
+	    fdlSecretKey.left = new FormAttachment( 0, 0 );
+	    fdlSecretKey.right = new FormAttachment( middle, -margin );
+	    wlSecretKey.setLayoutData( fdlSecretKey );
+
+	    wSecretKey = new PasswordTextVar( transMeta, shell, SWT.SINGLE | SWT.LEFT | SWT.BORDER );
+
+	    props.setLook( wSecretKey );
+	    wSecretKey.addModifyListener( lsMod );
+	    FormData fdSecretKey = new FormData();
+	    fdSecretKey.top = new FormAttachment( lastControl, margin );
+	    fdSecretKey.left = new FormAttachment( middle, 0 );
+	    fdSecretKey.right = new FormAttachment( 100, 0 );
+	    wSecretKey.setLayoutData( fdSecretKey );
+	    lastControl = wSecretKey;
+	    
 		// Bucket name
 		Label wlBucket = new Label(shell, SWT.RIGHT);
 		wlBucket.setText(Messages.getString("S3CsvInputDialog.Bucket.Label")); //$NON-NLS-1$
